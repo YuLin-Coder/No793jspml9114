@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.CaigouyuanDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.CaigouyuanEntity" id="caigouyuanMap">
+        <result property="caigouyuangonghao" column="caigouyuangonghao"/>
+        <result property="mima" column="mima"/>
+        <result property="caigouyuanxingming" column="caigouyuanxingming"/>
+        <result property="bumen" column="bumen"/>
+        <result property="zhiwu" column="zhiwu"/>
+        <result property="touxiang" column="touxiang"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.CaigouyuanVO" >
+		SELECT * FROM caigouyuan  caigouyuan         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.CaigouyuanVO" >
+		SELECT  caigouyuan.* FROM caigouyuan  caigouyuan 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.CaigouyuanView" >
+
+		SELECT  caigouyuan.* FROM caigouyuan  caigouyuan 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.CaigouyuanView" >
+		SELECT * FROM caigouyuan  caigouyuan <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
